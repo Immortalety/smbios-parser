@@ -16,7 +16,6 @@
  */
 
 #include "smbios.h"
-#include <stdio.h>
 
 #define VALID_VERSION(x) (((x) >= SMBIOS_2_0 && (x) <= SMBIOS_2_8) || (x) == SMBIOS_3_0)
 
@@ -696,7 +695,7 @@ static int parse_entry(struct ParserContext *context, const struct Entry **entry
             break;
         default:
             // we have an unrecognized entry
-            return SMBERR_OK;
+            return SMBERR_INVALID_DATA;
     }
 
     if (context->failed)
